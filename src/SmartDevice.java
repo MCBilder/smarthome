@@ -33,7 +33,7 @@ public class SmartDevice {
         return firmwareVersion;
     }
 
-    public static class Builder{
+    public static class Builder {
         private final String id;
         private final String name;
 
@@ -46,22 +46,25 @@ public class SmartDevice {
             this.name = name;
         }
 
-        public Builder withRoom(String room){
+        public Builder withRoom(String room) {
             this.room = room;
             return this;
         }
 
-        public Builder withMacAddress(String macAddress){
+        public Builder withMacAddress(String macAddress) throws InvalidMacAddressException{
+            if (macAddress.length() != 17 || !macAddress.contains(":")) {
+                throw new InvalidMacAddressException("Fail to obtain correct address");
+            }
             this.macAddress = macAddress;
             return this;
         }
 
-        public Builder withFirmwareVersion(double firmwareVersion){
+        public Builder withFirmwareVersion(double firmwareVersion) {
             this.firmwareVersion = firmwareVersion;
             return this;
         }
 
-        public SmartDevice build(){
+        public SmartDevice build() {
             return new SmartDevice(this);
         }
 
