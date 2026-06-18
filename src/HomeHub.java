@@ -16,9 +16,9 @@ public class HomeHub {
         return instance;
     }
 
-    public List<SmartDevice> registerDevice(SmartDevice device) throws DuplicateDeviceException{
+    public void registerDevice(SmartDevice device) throws DuplicateDeviceException{
         if(devices.stream().anyMatch(inListDevice -> inListDevice.getId().equals(device.getId()))){
-            throw new DuplicateDeviceException("device with this id or macAddres exist")
+            throw new DuplicateDeviceException("device with this id or macAddres exist");
         }
         devices.add(device);
     }
