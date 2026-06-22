@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class HomeHub{
     private static HomeHub instance;
-    private List<SmartDevice> devices;
+    private List<ManageableDevice> devices;
 
     private HomeHub(){
         devices = new ArrayList<>();
@@ -26,7 +26,7 @@ public class HomeHub{
         devices.add(device);
     }
 
-    public List<SmartDevice> getDevicesByRoom(String room){
+    public List<ManageableDevice> getDevicesByRoom(String room){
         //jak bedzie wywalac blad zalezny od wersji javy to .collect(Collectors.toList())
         List<SmartDevice> roomList = devices.stream().filter(devicesToFind -> devicesToFind.getRoom().equals(room)).toList();
         Collections.sort(roomList);
