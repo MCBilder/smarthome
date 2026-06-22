@@ -14,5 +14,8 @@ public class Main {
         ManageableDevice adapter = new ThermostatAdapter(legacyThermostat);
 
         HomeHub.getInstance().registerDevice(adapter);
+        SmartDevice bulb = DeviceFactory.createLivingRoomBulb("123", "lightBulb");
+        ManageableDevice thatOneBulb = new EnergyMonitoringDecorator(bulb);
+        thatOneBulb.turnOn();
     }
 }
