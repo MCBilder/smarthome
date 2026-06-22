@@ -9,5 +9,10 @@ public class Main {
         device.turnOn();
         device.getStatus();
         device.turnOff();
+
+        LegacyThermostat legacyThermostat = new LegacyThermostat();
+        ManageableDevice adapter = new ThermostatAdapter(legacyThermostat);
+
+        HomeHub.getInstance().registerDevice(adapter);
     }
 }
