@@ -1,21 +1,37 @@
 public class Main {
     public static void main(String[] args) {
+        HomeHub homeHub = HomeHub.getInstance();
+        SmartHomeFacade facade = new SmartHomeFacade(homeHub);
+
         try {
-            SmartDevice smartDevice = new SmartDevice.Builder("1", "PC").withMacAddress("2131").build();
+            SmartDevice smartDevice = new SmartDevice.Builder("1", "PC").withMacAddress("11:22:33:44:55:66").build();
+            SmartDevice tv = new SmartDevice.Builder("tv-1", "TV")
+                    .withRoom("Living Room")
+                    .withMacAddress("11:22:33:44:55:66")
+                    .withFirmwareVersion(1.5)
+                    .build();
+            homeHub.registerDevice(tv);
         }catch (InvalidMacAddressException e){
             System.out.println(e.getMessage());
         }
-        SmartDevice device = new SmartDevice.Builder("1", "tv").build();
+        /*
+        SmartDevice device = new SmartDevice.Builder("1", "TV").build();
         device.turnOn();
         device.getStatus();
         device.turnOff();
-
+        */
         LegacyThermostat legacyThermostat = new LegacyThermostat();
         ManageableDevice adapter = new ThermostatAdapter(legacyThermostat);
+        homeHub.registerDevice(adapter);
 
-        HomeHub.getInstance().registerDevice(adapter);
         SmartDevice bulb = DeviceFactory.createLivingRoomBulb("123", "lightBulb");
         ManageableDevice thatOneBulb = new EnergyMonitoringDecorator(bulb);
+        homeHub.registerDevice(thatOneBulb);
         thatOneBulb.turnOn();
+
+        System.out.println("\n");
+        facade.goodNightRoutine();
+        System.out.println("\n");
+        facade.movieMode();
     }
 }

@@ -20,4 +20,8 @@ public class ThermostatAdapter implements ManageableDevice{
     public void getStatus() {
         legacyThermostat.fetchCurrentTemperature();
     }
+
+    public void lowerTemperature() {
+        legacyThermostat.lowerTemperature();
+    }
 }

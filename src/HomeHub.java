@@ -19,6 +19,10 @@ public class HomeHub{
         return instance;
     }
 
+    public List<ManageableDevice> getDevices() {
+        return devices;
+    }
+
     public void registerDevice(ManageableDevice device) throws DuplicateDeviceException {
         if (device instanceof SmartDevice newDevice) {
             boolean duplicate = devices.stream()
