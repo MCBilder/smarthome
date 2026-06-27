@@ -44,5 +44,13 @@ public class Main {
         facade.goodNightRoutine();
         System.out.println("\n");
         facade.movieMode();
+
+        System.out.println("\n");
+        SmartBlind blind = new SmartBlind();
+        blind.openBlind();
+        blind.openBlind();
+        blind.closeBlind();
+        blind.closeBlind();
+        blind.stopBlind();
     }
 }
