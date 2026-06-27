@@ -14,6 +14,11 @@ public class SmartDevice implements Comparable<SmartDevice>, ManageableDevice{
         return result;
     }
 
+    @Override
+    public void accept(DeviceVisitor visitor) {
+        visitor.visit(this);
+    }
+
     private SmartDevice(Builder builder) {
         this.id = builder.id;
         this.name = builder.name;

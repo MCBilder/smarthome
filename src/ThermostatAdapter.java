@@ -38,6 +38,11 @@ public class ThermostatAdapter implements ManageableDevice{
         legacyThermostat.fetchCurrentTemperature();
     }
 
+    @Override
+    public void accept(DeviceVisitor visitor) {
+        visitor.visit(legacyThermostat);
+    }
+
     public void lowerTemperature() {
         legacyThermostat.lowerTemperature();
     }
