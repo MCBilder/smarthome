@@ -1,6 +1,8 @@
+package device;
+
 import java.time.LocalTime;
 
-public class EnergyMonitoringDecorator extends DeviceDecorator{
+public class EnergyMonitoringDecorator extends DeviceDecorator {
 
     public EnergyMonitoringDecorator(ManageableDevice manageableDevice) {
         super(manageableDevice);

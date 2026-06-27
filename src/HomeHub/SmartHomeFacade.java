@@ -1,5 +1,12 @@
+package HomeHub;
+
 import java.util.Iterator;
 import java.util.List;
+
+import device.ManageableDevice;
+import device.SmartDevice;
+import device.EnergyMonitoringDecorator;
+import thermostat.ThermostatAdapter;
 
 public class SmartHomeFacade {
     private HomeHub homeHub;

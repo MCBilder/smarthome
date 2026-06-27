@@ -1,3 +1,5 @@
+package blind;
+
 public class SmartBlind {
     private BlindState state;
 

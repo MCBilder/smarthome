@@ -1,5 +1,5 @@
 ## Opis projektu
-HomeHub to prosta aplikacja do zarządzania urządzeniami smart w domu. Umożliwia rejestrację urządzeń, wyszukiwanie oraz sortowanie według różnych kryteriów.
+HomeHub.HomeHub to prosta aplikacja do zarządzania urządzeniami smart w domu. Umożliwia rejestrację urządzeń, wyszukiwanie oraz sortowanie według różnych kryteriów.
 
 ## Funkcjonalności
 - Dodawanie urządzeń (`registerDevice`)
@@ -8,9 +8,9 @@ HomeHub to prosta aplikacja do zarządzania urządzeniami smart w domu. Umożliw
 - Sortowanie urządzeń (naturalny porządek: name → room)
 
 ## Struktura projektu
-- `SmartDevice` – klasa reprezentująca urządzenie
-- `HomeHub` – klasa zarządzająca urządzeniami
-- `DuplicateDeviceException` – wyjątek dla duplikatów
+- `device.SmartDevice` – klasa reprezentująca urządzenie
+- `HomeHub.HomeHub` – klasa zarządzająca urządzeniami
+- `exception.DuplicateDeviceException` – wyjątek dla duplikatów
 
 ## Jak uruchomić
 1. Otwórz projekt w IntelliJ / Eclipse

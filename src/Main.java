@@ -1,3 +1,23 @@
+import blind.SmartBlind;
+
+import device.DeviceFactory;
+import device.EnergyMonitoringDecorator;
+import device.ManageableDevice;
+import device.SmartDevice;
+import device.DiagnosticsVisitor;
+
+import exception.InvalidMacAddressException;
+
+import HomeHub.HomeHub;
+import HomeHub.SmartHomeFacade;
+
+import sensor.MotionSensor;
+
+import thermostat.ThermostatAdapter;
+import thermostat.LegacyThermostat;
+import thermostat.EcoStrategy;
+import thermostat.ComfortStrategy;
+
 public class Main {
     public static void main(String[] args) {
         HomeHub homeHub = HomeHub.getInstance();
@@ -18,7 +38,7 @@ public class Main {
             System.out.println(e.getMessage());
         }
         /*
-        SmartDevice device = new SmartDevice.Builder("1", "TV").build();
+        device.SmartDevice device = new device.SmartDevice.Builder("1", "TV").build();
         device.turnOn();
         device.getStatus();
         device.turnOff();

@@ -1,6 +1,10 @@
+package device;
+
+import exception.InvalidMacAddressException;
+
 public class DeviceFactory {
 
-    public static SmartDevice createLivingRoomBulb(String id, String name) throws InvalidMacAddressException{
+    public static SmartDevice createLivingRoomBulb(String id, String name) throws InvalidMacAddressException {
         return new SmartDevice.Builder(id, name).withRoom("Living Room").withMacAddress("AA:BB:CC:DD:EE:FF").withFirmwareVersion(2.0).build();
     }
 

@@ -1,3 +1,5 @@
+package blind;
+
 public class MovingState implements BlindState {
 
     public MovingState(SmartBlind blind, boolean opening) {

@@ -1,3 +1,5 @@
+package thermostat;
+
 public class EcoStrategy implements HeatingStrategy {
 
     @Override

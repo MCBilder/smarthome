@@ -1,14 +1,21 @@
+package HomeHub;
+
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class HomeHub implements SensorObserver{
+import device.ManageableDevice;
+import device.SmartDevice;
+import device.DiagnosticsVisitor;
+import exception.DuplicateDeviceException;
+import sensor.SensorObserver;
+
+public class HomeHub implements SensorObserver {
     private static HomeHub instance;
     private List<ManageableDevice> devices;
 
-    private HomeHub(){
+    private HomeHub() {
         devices = new ArrayList<>();
     }
 
@@ -60,14 +67,13 @@ public class HomeHub implements SensorObserver{
         return roomList;
     }
 /*
-    public List<ManageableDevice> getDevicesByRoom(String room){
+    public List<device.ManageableDevice> getDevicesByRoom(String room){
         //jak bedzie wywalac blad zalezny od wersji javy to .collect(Collectors.toList())
-        List<SmartDevice> roomList = devices.stream()
+        List<device.SmartDevice> roomList = devices.stream()
                 .filter(devicesToFind -> devicesToFind
                         .getRoom().equals(room)).toList();
         Collections.sort(roomList);
         return roomList;
     }
  */
-
 }

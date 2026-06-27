@@ -1,3 +1,5 @@
+package blind;
+
 public interface BlindState {
     void open(SmartBlind blind);
     void close(SmartBlind blind);

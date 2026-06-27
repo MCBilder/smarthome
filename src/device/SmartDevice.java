@@ -1,4 +1,8 @@
-public class SmartDevice implements Comparable<SmartDevice>, ManageableDevice{
+package device;
+
+import exception.InvalidMacAddressException;
+
+public class SmartDevice implements Comparable<SmartDevice>, ManageableDevice {
     private String id;
     private String name;
     private String room;
@@ -80,7 +84,7 @@ public class SmartDevice implements Comparable<SmartDevice>, ManageableDevice{
             return this;
         }
 
-        public Builder withMacAddress(String macAddress) throws InvalidMacAddressException{
+        public Builder withMacAddress(String macAddress) throws InvalidMacAddressException {
             if (macAddress.length() != 17 || !macAddress.contains(":")) {
                 throw new InvalidMacAddressException("Fail to obtain correct address");
             }

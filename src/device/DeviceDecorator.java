@@ -1,3 +1,5 @@
+package device;
+
 public abstract class DeviceDecorator implements ManageableDevice{
     protected ManageableDevice manageableDevice;
 

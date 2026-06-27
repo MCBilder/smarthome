@@ -1,3 +1,5 @@
+package device;
+
 public interface ManageableDevice {
     void turnOn();
     void turnOff();

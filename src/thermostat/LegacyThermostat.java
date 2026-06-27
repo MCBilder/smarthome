@@ -1,3 +1,5 @@
+package thermostat;
+
 public class LegacyThermostat {
     private double currentTemperature = 21.0;
 

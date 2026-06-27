@@ -1,4 +1,9 @@
-public class ThermostatAdapter implements ManageableDevice{
+package thermostat;
+
+import device.ManageableDevice;
+import device.DeviceVisitor;
+
+public class ThermostatAdapter implements ManageableDevice {
     private LegacyThermostat legacyThermostat;
     private HeatingStrategy heatingStrategy;
 

@@ -1,8 +1,10 @@
+package blind;
+
 public class ClosedState implements BlindState {
 
     @Override
     public void open(SmartBlind blind) {
-        blind.setState(new MovingState(blind, true));
+        new MovingState(blind, true);
     }
 
     @Override

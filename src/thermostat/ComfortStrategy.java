@@ -1,3 +1,5 @@
+package thermostat;
+
 public class ComfortStrategy implements HeatingStrategy {
 
     @Override
