@@ -24,8 +24,16 @@ public class Main {
         device.turnOff();
         */
         LegacyThermostat legacyThermostat = new LegacyThermostat();
-        ManageableDevice adapter = new ThermostatAdapter(legacyThermostat);
+        ThermostatAdapter adapter = new ThermostatAdapter(legacyThermostat);
         homeHub.registerDevice(adapter);
+
+        adapter.setStrategy(new EcoStrategy());
+        adapter.applyStrategy(true);
+        adapter.applyStrategy(false);
+
+        adapter.setStrategy(new ComfortStrategy());
+        adapter.applyStrategy(true);
+        adapter.applyStrategy(false);
 
         SmartDevice bulb = DeviceFactory.createLivingRoomBulb("123", "lightBulb");
         ManageableDevice thatOneBulb = new EnergyMonitoringDecorator(bulb);

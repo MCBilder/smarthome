@@ -7,4 +7,8 @@ public class LegacyThermostat {
     public void lowerTemperature(){
         System.out.println(currentTemperature);
     }
+
+    public double getCurrentTemperature() {
+        return currentTemperature;
+    }
 }
