@@ -12,8 +12,6 @@ public class HomeHub implements SensorObserver{
         devices = new ArrayList<>();
     }
 
-
-
     @Override
     public void onSensorTriggered(String sensorId, String eventDetails) {
         System.out.println("ALARM: Wykryto ruch z czujnika " + sensorId + " (" + eventDetails + ")");
@@ -24,6 +22,14 @@ public class HomeHub implements SensorObserver{
             instance = new HomeHub();
         }
         return instance;
+    }
+
+    public void runDiagnostics() {
+        DiagnosticsVisitor visitor = new DiagnosticsVisitor();
+        for (ManageableDevice device : devices) {
+            device.accept(visitor);
+        }
+        System.out.println(visitor.getReport());
     }
 
     public List<ManageableDevice> getDevices() {

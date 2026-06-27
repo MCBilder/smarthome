@@ -40,6 +40,8 @@ public class Main {
         homeHub.registerDevice(thatOneBulb);
         thatOneBulb.turnOn();
 
+        homeHub.runDiagnostics();
+
         System.out.println("\n");
         facade.goodNightRoutine();
         System.out.println("\n");
