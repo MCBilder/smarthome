@@ -4,12 +4,19 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class HomeHub{
+public class HomeHub implements SensorObserver{
     private static HomeHub instance;
     private List<ManageableDevice> devices;
 
     private HomeHub(){
         devices = new ArrayList<>();
+    }
+
+
+
+    @Override
+    public void onSensorTriggered(String sensorId, String eventDetails) {
+        System.out.println("ALARM: Wykryto ruch z czujnika " + sensorId + " (" + eventDetails + ")");
     }
 
     public static HomeHub getInstance() {
@@ -31,7 +38,7 @@ public class HomeHub{
                     .anyMatch(existing -> existing.getId().equals(newDevice.getId())
                             || existing.getMacAddress().equals(newDevice.getMacAddress()));
             if (duplicate) {
-                throw new DuplicateDeviceException("device with this id or macAddres exist");
+                throw new DuplicateDeviceException("device with this id or macAddres exist" + getDevices());
             }
         }
         devices.add(device);

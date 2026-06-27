@@ -11,6 +11,9 @@ public class Main {
                     .withFirmwareVersion(1.5)
                     .build();
             homeHub.registerDevice(tv);
+            MotionSensor sensor = new MotionSensor("MS-1");
+            sensor.attach(homeHub);
+            sensor.detectMotion();
         }catch (InvalidMacAddressException e){
             System.out.println(e.getMessage());
         }
